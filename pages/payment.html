@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<!-- Start of second page -->
+<div data-role="page" id="pagPaymentEntry" data-add-back-btn="true">
+
+	<div data-role="header">
+		<a href='#' class='ui-btn-left' data-icon='arrow-l' onclick="history.back(); return false">Volver</a>
+		<h1>Punto</h1>
+		<img src="../img/PuntoIcon.png" class="ui-btn-right" height="30px" />
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<h2>
+        	Ingresar monto
+    	</h2>
+    	<form method="post">
+	        <div data-role="fieldcontain" >
+            	<input id="txtPaymentAmount" type="number" placeholder="BsF." value="" />
+	        </div>
+	        <div data-role="fieldcontain">
+            	<input id="btnPay" type="button" value="Pagar" onclick="btnPayClick();" />
+       		</div>
+		</form>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+</body>
+</html>

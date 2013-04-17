@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Punto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Vendor scripts -->
+<script type="text/javascript" charset="utf-8" src="scripts/vendor/cordova-2.5.0.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    // IMPORTANT: This must execute before jQueryMobile is loaded!
+    $(document).bind("mobileinit", function() {
+         // Set the default page trasition effec
+		$.mobile.defaultPageTransition = "slide";
+         // Placeholder for framework settings overrides
+         // See http://jquerymobile.com/demos/1.2.0/docs/api/globalconfig.html
+    });            
+</script>
+<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+<script src="scripts/vendor/jquery.signaturepad.js"></script>
+<script src="scripts/vendor/flashcanvas.js"></script>
+<script src="scripts/vendor/json2.min.js"></script>
+
+<!-- Application scripts -->
+<script src="scripts/application.js"></script>
+<script src="scripts/index.js"></script>
+<script src="scripts/payment.js"></script>
+
+<!-- tylesheets -->
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+<link rel="stylesheet" href="css/punto.css" />
+<link rel="stylesheet" href="css/jquery.signaturepad.css">
+
+</head>
+<body onload="OnLoad();">
+<!-- Start of first page -->
+<div data-role="page" id="pagLogin" data-theme="a" data-content-theme="a">
+
+	<div data-role="header">
+		<h1>Punto</h1>
+		<img src="img/PuntoIcon.png" class="ui-btn-right" height="30px" />
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<h2>
+        	Ingreso
+    	</h2>
+    	<form method="post">
+    		<div data-role="fieldcontain" >
+            	<input data-val="true" data-val-required="Usuario es requerido." id="txtUserName" placeholder="Usuario" type="text" value="" />
+	        </div>
+	        <div data-role="fieldcontain">
+	            <input data-val="true" data-val-required="Clave es requerida." id="txtPassword" placeholder="Clave" type="password" />
+	        </div>
+	        <div data-role="fieldcontain">
+	            <input id="btnLogin" type="button" value="Ingresar" onclick="btnLoginClick();" />
+	        </div>
+	        <div data-role="fieldcontain">
+	            <input id="btnCreateUser" type="button" value="Crear usuario" onclick="btnCreateUserClick();" />
+	        </div>   
+		</form>
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>

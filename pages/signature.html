@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script src="scripts/payment.js"></script>
+</head>
+<body>
+<!-- Start of second page -->
+<div data-role="page" id="pagSignature" data-add-back-btn="true">
+
+	<div data-role="header">
+		<a href='#' class='ui-btn-left' data-icon='arrow-l' onclick="history.back(); return false">Volver</a>
+		<h1>Punto</h1>
+		<img src="../img/PuntoIcon.png" class="ui-btn-right" height="30px" />
+	</div><!-- /header -->
+
+	<div data-role="content">
+		<h2>
+        	Firmar
+    	</h2>
+    	<form method="post" action="" class="sigPad">
+		    <ul class="sigNav">
+		      <li class="clearButton"><a href="#clear">Borrar</a></li>
+		    </ul>
+		    <div class="sig sigWrapper">
+		      <canvas class="pad" width="200px" height="65px"></canvas>
+		      <input type="hidden" name="output" class="output">
+		    </div>
+		  </form>
+		<script>
+		    $(document).ready(function() {
+		      $('.sigPad').signaturePad({drawOnly:true});
+		    });
+		</script>
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
