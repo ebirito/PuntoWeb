@@ -4,7 +4,7 @@
 </head>
 <body>
 <!-- Start of second page -->
-<div data-role="page" id="pagPaymentEntry">
+<div data-role="page" id="pagTerms">
 	
 	<div data-role="header">
 		<a href='#' class='ui-btn-left' data-icon='arrow-l' onclick="history.back(); return false">Volver</a>
@@ -14,17 +14,13 @@
 	</div><!-- /header -->
 
 	<div data-role="content">
-		<h2>
-        	Ingresar monto
+		<h2 class="pageTitle">
+        	Terminos y condiciones
     	</h2>
-    	<form method="post">
-	        <div data-role="fieldcontain" >
-            	<input id="txtPaymentAmount" type="number" placeholder="BsF." value="" />
-	        </div>
-	        <div data-role="fieldcontain">
-            	<input id="btnPay" type="button" value="Pagar" onclick="btnPayClick();" />
-       		</div>
-		</form>
+    	<ul>
+    		<li>La utilizacion de esta aplicacion solo sera para efectos comerciales, las transacciones ilicitas que no esten acorde a la ley seran penalizadas</li>
+    		<li>El comprador se compromete a pagarle el monto al venededor. Y si no, aaaaaay papa, aqui lo que va a haber es candela</li>
+    	</ul>
 	</div><!-- /content -->
 
 </div><!-- /page -->
