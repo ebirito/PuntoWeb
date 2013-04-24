@@ -87,10 +87,7 @@
 
 <script>
 $('#pagLogin').bind('pageinit', function(event) {
-	$("#frmLogin").submit(function(e) {
-	    e.preventDefault();
-		return false;
-	}).validate({
+	$("#frmLogin").validate({
 		rules: {
 			txtEmail: {
 				required: true,
@@ -108,6 +105,7 @@ $('#pagLogin').bind('pageinit', function(event) {
 			chkTerms: "Favor aceptar terminos"
 		},
 		submitHandler: function(form) {
+			event.preventDefault();
             Login();
         }
 	});
