@@ -87,7 +87,9 @@
 
 <script>
 $('#pagLogin').bind('pageinit', function(event) {
-	$("#frmLogin").validate({
+	$("#frmLogin").submit(function(e) {
+	    e.preventDefault();
+	}).validate({
 		rules: {
 			txtEmail: {
 				required: true,
