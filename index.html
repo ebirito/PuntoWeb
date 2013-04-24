@@ -105,8 +105,8 @@ $('#pagLogin').bind('pageinit', function(event) {
 			chkTerms: "Favor aceptar terminos"
 		},
 		submitHandler: function(form) {
-			event.preventDefault();
-            Login();
+            		Login();
+            		return false;
         }
 	});
 });
