@@ -1,11 +1,12 @@
 // Triggered on the HTML body load
 function OnLoad() {
-    document.addEventListener("deviceready", OnDeviceReady, false);
+    //document.addEventListener("deviceready", OnDeviceReady, false);
+    InitializeApplication();
 }
 
 // Triggered when mobile initialization is complete
 function OnDeviceReady() {  
-    InitializeApplication();
+    //InitializeApplication();
 }
 
 // Application initialization
