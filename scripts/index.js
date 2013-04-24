@@ -1,4 +1,4 @@
-function btnLoginClick()
+function Login()
 {
 	$.mobile.changePage('pages/payment.html');
 }
