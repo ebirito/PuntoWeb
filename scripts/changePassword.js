@@ -1,17 +1,20 @@
 function ChangePassword()
 {
-	$.mobile.changePage('payment.html');
-	/*var user = new StackMob.User({ username: $("#txtEmail").val(), password: $("#txtPassword").val() });
-	//Makes a call to StackMob to request a login
-	user.login(false, {
-	  success: function(model) {
-	    $.mobile.changePage('pages/payment.html');
-	  }, 
-	  error: function(model, response) {
-	    var validator = $("#frmLogin").validate();
-		validator.showErrors({"txtPassword": "E-mail o clave no validos (punto@punto.com, 12345)"});
-	  }
-	});*/
+	// Change the password
+	var newPassword = $("#txtNewPassword").val();
+	_user.resetPassword(_user.attributes.password, newPassword);
+	_user.attributes.password = newPassword;
+	// Set the needPasswordChange property to false
+	// if there is a field that is not there yet, StackMob will automatically create it for you
+	var userChanges = new StackMob.User({ username: _user.attributes.username, needPasswordChange : false });
+	userChanges.save({}, {
+	    success: function(model) {
+	        $.mobile.changePage('payment.html');
+	    },
+	    error: function(model, response) {
+	        alert(response);
+	    }
+	});
 }
 
 function lnkTermsClick()

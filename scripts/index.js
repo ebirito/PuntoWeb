@@ -1,14 +1,21 @@
 function Login()
 {
-	var user = new StackMob.User({ username: $("#txtEmail").val(), password: $("#txtPassword").val() });
+	_user = new StackMob.User({ username: $("#txtEmail").val(), password: $("#txtPassword").val() });
 	//Makes a call to StackMob to request a login
-	user.login(false, {
-	  success: function(model) {
-	    $.mobile.changePage('pages/changePassword.html');
+	_user.login(false, {
+	  success: function(user) {
+	   // If password needs to be reset then take the user to that page
+	   if(user.needPasswordChange){
+	    	$.mobile.changePage('pages/changePassword.html');
+	    }
+	    // otherwise go straight to the payment page
+	   else{
+	   		$.mobile.changePage('pages/payment.html');
+	   }
 	  }, 
-	  error: function(model, response) {
+	  error: function(user, response) {
 	    var validator = $("#frmLogin").validate();
-		validator.showErrors({"txtPassword": "E-mail o clave no validos (punto@punto.com, 12345)"});
+		validator.showErrors({"txtPassword": "E-mail o clave no validos"});
 	  }
 	});
 }
