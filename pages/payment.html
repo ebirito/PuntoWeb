@@ -20,20 +20,12 @@
 	        <div data-role="fieldcontain" >
             	<input id="txtPaymentAmount" type="number" placeholder="BsF." value="" />
 	        </div>
-	        <div data-role="fieldcontain" style="display:none" id="divPay">
+	        <div data-role="fieldcontain">
             	<input id="btnPay" type="button" value="Pagar" onclick="btnPayClick();" />
-       		</div>
-       		<div data-role="fieldcontain" style="display:none;" id="divInsertReader" align="center">
-       			<div style="display:inline-block;vertical-align:middle;"><img src="../img/readerUnplugged.png" /></div>     			
-       			<div style="display:inline-block;vertical-align:middle;color:Red;margin-left:5px">Inserte el lector</div>
        		</div>
 		</form>
 	</div>
-	<script>
-	$('#pagPaymentEntry').bind('pageinit', function(event) {
-		CheckHeadset();
-	});
-	</script>
+
 </div>
 </body>
 </html>
