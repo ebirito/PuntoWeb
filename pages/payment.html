@@ -16,16 +16,49 @@
 		<h2>
         	Ingresar monto
     	</h2>
-    	<form method="post">
+    	<form id="frmPayment">
 	        <div data-role="fieldcontain" >
-            	<input id="txtPaymentAmount" type="number" placeholder="BsF." value="" />
+            	<input id="txtPaymentAmount" name="txtPaymentAmount" type="tel" placeholder="BsF." value="" />
 	        </div>
 	        <div data-role="fieldcontain">
-            	<input id="btnPay" type="button" value="Pagar" onclick="btnPayClick();" />
+            	<input name="btnPay" type="button" onclick="CreateAndSavePayment();" value="Pagar" />
        		</div>
 		</form>
 	</div>
-
+	<script>
+		var _amount = 0;
+	    $(document).ready(function() {	    	
+	    	/*$("#frmPayment").validate({
+				rules: {
+					txtPaymentAmount: {
+						required: true
+					}
+				},
+				messages: {
+					txtPaymentAmount:  "Favor ingrese monto valido"
+				},
+				submitHandler: function(form) {
+            		CreateAndSavePayment();
+            		return false;
+		        }
+			});*/
+	    	
+	    	var txtPaymentAmount = document.getElementById('txtPaymentAmount');
+    		$('#txtPaymentAmount').focus(function()
+	        {
+	        	txtPaymentAmount.value = "";
+			    txtPaymentAmount.type = "tel";
+			    _validator.resetForm();
+	        });
+	      $('#txtPaymentAmount').blur(function()
+	        {
+	        	var val = txtPaymentAmount.value;
+	        	_amount = isNaN(val) ? 0 : Number(val);
+	        	txtPaymentAmount.type = "text";
+	            $('#txtPaymentAmount').currency({ region: 'VEF', thousands: '.', decimal: ',', decimals: 2 });
+	        });
+	    });
+	</script>
 </div>
 </body>
 </html>
