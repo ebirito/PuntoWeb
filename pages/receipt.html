@@ -5,11 +5,12 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <title>Punto - Receipt</title>
-    
+  <title>Punto - Receipt</title>  
 </head>
 <body>
 	
+    <script>loadReceipt();</script>
+    	
 	<!-- Spans location are harcoded using non-brake spaces, this is not the ideal way to do it,
   	   but it's set to be thinner (i.e. with a width inferior) than the smaller Android or iPhone screen.
        The alternative is to use CSS relative location but it proved extremely complicated in PhoneGap 
@@ -22,7 +23,7 @@
    <div>
               <p style="text-align: center;" data-mce-style="text-align: center;">
                   <span style="font-size: xx-small;">
-                      PuntoMóvil
+                      PuntoMóvil XI
                   </span>
               </p>
               <p style="text-align: center;" data-mce-style="text-align: center;">
@@ -61,8 +62,8 @@
                   </span>
               </p>
   </div>
-  <!-- Main Receipt Body Div -->
-  <div>
+  <!-- Main Success Receipt Body Div -->
+  <div class="success">
               <p>
                   <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
                       ======================================================
@@ -126,6 +127,13 @@
                       													  </script>
                   </span>
               </p>
+              </div>
+              <!-- Main Failed Receipt Body Div -->
+              <div class="failed">
+              	***** TRANSACCIÓN FALLIDA *****
+              </div>
+              <!-- Main Receipt Footer Div -->
+              <div>
               <p>
                   <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
                       Visa:
