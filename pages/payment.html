@@ -21,7 +21,8 @@
             	<input id="txtPaymentAmount" name="txtPaymentAmount" type="tel" placeholder="BsF." value="" />
 	        </div>
 	        <div data-role="fieldcontain">
-            	<input name="btnPay" type="button" onclick="CreateAndSavePayment();" value="Pagar" />
+            	<!-- Displays receipt in a Modal Screen that Pops out -->
+                <a href="receipt.html" data-role="button" data-inline="false" data-rel="dialog" data-transition="pop" onclick="CreateAndSavePayment();">Pagar</a> 
        		</div>
 		</form>
 	</div>

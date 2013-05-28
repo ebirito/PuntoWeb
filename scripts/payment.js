@@ -13,11 +13,15 @@ function CreateAndSavePayment()
 	payment.create({
     success: function(model) {
         alert("Payment saved");
-        $.mobile.changePage('signature.html');
+		//Generates a Receipt before going to the Signature page
+		createReceipt();
     },
     error: function(model, response) {
         alert("Error saving payment");
     }});
+	
+	
+	
 }
 
 function CreatePayment()
@@ -49,3 +53,17 @@ function GetCardInfo()
 	
 	return cardInfo;
 }
+
+function createReceipt()
+{
+	//Gets card info into dictionary
+	var cardInfo = GetCardInfo();
+
+	//Assings the card info to global variables
+	localStorage.amount=_amount;
+	localStorage.CardHolderFirstName=cardInfo.CardHolderFirstName;
+	localStorage.CardHolderMiddleInitial=cardInfo.CardHolderMiddleInitial;
+	localStorage.CardHolderLastName=cardInfo.CardHolderLastName;
+	localStorage.CardLastFourNumbers=cardInfo.CardLastFourNumbers;
+}
+

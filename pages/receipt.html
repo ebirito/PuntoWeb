@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>Punto - Receipt</title>
+    
+</head>
+<body>
+	
+	<!-- Spans location are harcoded using non-brake spaces, this is not the ideal way to do it,
+  	   but it's set to be thinner (i.e. with a width inferior) than the smaller Android or iPhone screen.
+       The alternative is to use CSS relative location but it proved extremely complicated in PhoneGap 
+       that seems to prefer divs that are piled up instead of being side-by-side.
+  	 -->
+
+   <!-- Name and address receipt header -->
+   <!-- Name and address are harcoded but it must be set from a value coming from a local configuration file -->
+   
+   <div>
+              <p style="text-align: center;" data-mce-style="text-align: center;">
+                  <span style="font-size: xx-small;">
+                      PuntoMóvil
+                  </span>
+              </p>
+              <p style="text-align: center;" data-mce-style="text-align: center;">
+                  <span style="font-size: xx-small;">
+                      1ra Trv Los Palos Grandes, Torre Punto
+                  </span>
+              </p>
+              <p style="text-align: center;" data-mce-style="text-align: center;">
+                  <span style="font-size: xx-small;">
+                      Caracas, Venezuela
+                  </span>
+              </p>
+              <p style="text-align: center;" data-mce-style="text-align: center;">
+                  <span style="font-size: xx-small;">
+                      (800) 123-4568
+                  </span>
+              </p>
+  </div>
+  <!-- Merchant ID & Date Div-->
+  <!-- Merchant ID is harcoded but it must be set from a value coming from the backend.
+       The Date correspond to the current day the transaction was processed, it's with the YYYY/MM/DD format.
+   -->
+  <div>
+              <p style="text-align: center;" data-mce-style="text-align: center;">
+                  <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      Merchant ID # 0001 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp;
+                  </span>
+                  <span class="date" style="font-size: xx-small;">
+                      Fecha:<script>
+					  			var d = new Date();
+								var strDate = d.getFullYear() + "/" + (d.getMonth()+1) + "/" + d.getDate();
+								$('.date').append(strDate);
+                      		</script>
+					  
+                  </span>
+              </p>
+  </div>
+  <!-- Main Receipt Body Div -->
+  <div>
+              <p>
+                  <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      ======================================================
+                  </span>
+              </p>
+              <p>
+                  <!-- Subtotal Span -->
+                  <!-- This is the input amount without taxes -->
+                  <span class="subtotal" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      Sub-Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Bs.<script>$('.subtotal').append(localStorage.amount);</script>
+                  </span>
+              </p>
+              <p>
+                  <!-- Tax Span -->
+                  <!-- This is the specified tax value, right now it's hard coded to 14%,
+                  	   it must be eventually set in the configuration interface. 
+                   -->
+                  <span class="tax" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      IVA (14%): &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bs.
+                      <script>
+					  		var tax = parseInt(localStorage.amount) * 0.14;
+					  		$('.tax').append((tax).toFixed(2));
+                      </script>
+                  </span>
+              </p>
+              <p>
+                  <!-- Tendered Total Span -->
+                  <!-- This is the amount that is being charged to the client -->
+                  <span class="tenderedTotal" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp;Bs.<script>
+					  							var tax = parseInt(localStorage.amount) * 0.14;
+					  							var total = tax + parseInt(localStorage.amount);
+												$('.tenderedTotal').append((total).toFixed(2));
+                      						</script>
+                  </span>
+              </p>
+              <p>
+                  <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                  </span>
+                  <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      ======================================================
+                  </span>
+              </p>
+              <p>
+                  <!-- Total Span -->
+                  <!-- This is the amount that will be charged in this transaction -->
+                  <span class ="total" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      Monto Pagado &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Bs.<script>
+					  														var tax = parseInt(localStorage.amount) * 0.14;
+					  														var total = tax + parseInt(localStorage.amount);
+																			$('.total').append((total).toFixed(2));
+                      													  </script>
+                  </span>
+              </p>
+              <p>
+                  <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      Visa:
+                  </span>
+              </p>
+              <p>
+                  <!-- Account Span -->
+                  <!-- These are the last four digits of the Credit Card -->
+                  <span class="acct" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      &nbsp; &nbsp; ACCT:************<script>
+														$('.acct').append(localStorage.CardLastFourNumbers);
+                      								 </script>
+                  </span>
+              </p>
+              <p>
+                  <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      &nbsp; &nbsp; Exp:********
+                  </span>
+              </p>
+              <p>
+                  <!-- Merchant ID & Date Div-->
+  				  <!-- Approval is harcoded but it must be set from a value coming from the backend.  -->
+                  <span class="approval" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      &nbsp; &nbsp; Aprobación:9999999
+                  </span>
+              </p>
+              <p>
+                  <!-- Name Span -->
+                  <!-- This is the client's name as it appears in the card -->
+                  <span class="name" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      &nbsp; &nbsp; Nombre: <script>
+												var name = localStorage.CardHolderFirstName+" "+localStorage.CardHolderMiddleInitial+" "+localStorage.CardHolderLastName;
+												$('.name').append(name);
+                      						</script>
+                  </span>
+              </p>
+              <p>
+                  <!-- Total Paid Span -->
+                  <!-- This is the amount that the client actually paid -->
+                  <span class="totalPaid" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      Pago Total &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Bs.<script>
+					  															var tax = parseInt(localStorage.amount) * 0.14;
+					  															var total = tax + parseInt(localStorage.amount);
+																				$('.totalPaid').append((total).toFixed(2));
+                      													  		</script>
+                  </span>
+              </p>
+              <p>
+                  <br>
+              </p>
+              <p>
+                  <span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      ************************************
+                  </span>
+              </p>
+              <p>
+                  <!-- Transaction Number Time Stamp Span -->
+                  <!-- This is the Time Stamp, indicating the moment when the transaction was processed.
+                   	   Transaction number is harcoded but it must be set from a value coming from the backend 
+                   -->
+                  <span class="timeStamp" style="font-size: xx-small;" data-mce-style="font-size: xx-small;">
+                      Transacción:00000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<script>
+														$('.timeStamp').append(new Date());
+                      								 </script>
+                  </span>
+              </p>
+          </div>
+          <!-- Button to Signature Screen -->
+          <div>
+          <a href="signature.html" data-role="button" data-inline="false";">Finalizar</a>
+          </div>
+  
+  
+</body>
+</html>
