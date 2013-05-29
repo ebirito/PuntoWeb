@@ -1,3 +1,6 @@
+//receipt.js
+
+// Show or hide div tags depending on the outcome (successful or failed) of the transacion
 function loadReceipt(){
 	
 	if (localStorage.success=="Y") {

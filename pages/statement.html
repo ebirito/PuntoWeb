@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<div data-role="page" id="pagStatement">
+	
+	<div data-role="header">
+		<div align="center">
+     		<img src="../img/logoBig.png" vspace="2" height="30px"/>
+		</div>
+        <div align="center">
+     		ACCOUNT STATEMENT
+            LAST 10 TRANSACTIONS
+		</div>
+	</div>
+
+	<div data-role="content" id="payments">
+		
+	</div>
+    <div data-role="footer">		
+		<div data-role="navbar">
+			<ul>
+				<!-- 
+                	 Tabbed Navigation Bar for moving between the main payments interface to
+                	 the administrative and configuration interfaces.
+                     
+                     Administrative interface is currently only the last 10 transactions and
+                     the configuration interface doesn't exists yet.
+                -->
+                <li><a href="payment.html">Main</a></li>
+                <li><a href="statement.html">Administrative</a></li>
+				<li><a href="#">Configuration</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+<script>
+	getPayments();
+</script>
+</div>
+</body>
+</html>
