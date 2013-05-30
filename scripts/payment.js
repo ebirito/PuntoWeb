@@ -12,15 +12,10 @@ function CreateAndSavePayment()
 	var payment = CreatePayment();
 	payment.create({
     success: function(model) {
-        alert("Payment saved");
-		//Generates a Receipt before going to the Signature page
-		localStorage.success="Y";
-		createReceipt();
+		$.mobile.changePage('signature.html');
     },
     error: function(model, response) {
 		alert("Error saving payment");
-		localStorage.success="N";
-		createReceipt();
     }});
 	
 	
