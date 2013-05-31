@@ -8,7 +8,7 @@
   <title>Punto - Receipt</title>  
 </head>
 <body>
-<div data-role="page" id="pagReceipt">
+<div data-role="page" id="pagReceipt">  
 <script>
 	loadReceipt();
 	
@@ -25,7 +25,7 @@
 	$('.acct').append(localStorage.CardLastFourNumbers);
 	
 </script>
-    
+  
     <div>
 		<div align="center">
      		<img src="../img/logoBig.png" vspace="2" height="100px"/>
@@ -36,7 +36,7 @@
     	<!-- Name and address receipt header -->
    		<!-- Name and address are harcoded but it must be set from a value coming from a local configuration file -->
    
-   		<div style="text-align: center;" data-mce-style="text-align: center;">
+   		<div data-role="content" align="center">
               <p>
                   <h2 >EL MORRISON</h2>
                   <span style="font-size: xx-small;color:#908d90;";>
@@ -45,50 +45,50 @@
               </p>
   		</div>
 
-  		<div data-role="content"  style="text-align: center;">
+  		<div id="receipt-content-divs" data-role="content">
                   <!-- Transaction Number Time Stamp Span -->
   				  <!-- This is the Time Stamp, indicating the moment when the transaction was processed.
   	   		 		   Transaction number is harcoded but it must be set from a value coming from the backend 
   				  -->
                   <span class="timeStamp" style="font-size: small;color:#b4b4b8;" data-mce-style="font-size: small;">
-                      Recibo:00000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;
+                      Recibo:00000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
                   </span>
   		</div>
   		<!-- Main Success Receipt Body Div -->
-  		<div class="success" data-role="content" style="text-align: center;">
-                  <div align="center">
+  		<div class="success" id="receipt-content-divs" data-role="content">
+                  <div>
      					<img src="../img/grey_horizontal_line.png" vspace="2" height="2px" width="320"/>
 				  </div>
                   <!-- Tendered Total Span -->
                   <!-- This is the amount that is being charged to the client -->
                   <h3>
                   <span class="tenderedTotal">
-                      
                       Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                       &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;BsF.
-                      
                   </span>
                   <br>
                   </h3>
           </div>
           <!-- Main Failed Receipt Body Div -->
-          <div class="failed" data-role="content">
+          <div class="failed" id="receipt-content-divs" data-role="content">
               	***** TRANSACCIÓN FALLIDA *****
           </div>
           <!-- Main Receipt Footer Div -->
-          <div data-role="content" style="text-align: left;">
+          <div data-role="content" id="receipt-content-divs">
                   <!-- Account Span -->
                   <!-- These are the last four digits of the Credit Card -->
                   <span class="acct" style="font-size: small;color:#b4b4b8;" data-mce-style="font-size: small;">
-                      &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;VISA ************
+                      VISA ************
                   </span>
           </div>
     </div>
 	
    
-          <!-- Done Buttom -->
-          <div>
-          <a href="payment.html" data-role="button" data-inline="false";">Finalizar</a>
+          <!-- Email Text Field and Send/Cancel Buttons -->
+          <div id="receipt-content-divs" data-role="content">
+    	  <input type="text" name="name" id="name" value=""  placeholder="Escriba su email si desea recibo"/>
+          <a href="payment.html" data-role="button" data-inline="true";">Enviar</a>
+          <a href="payment.html" data-role="button" data-inline="true";">Finalizar</a>
           </div>
 </div>
 </body>
