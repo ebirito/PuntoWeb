@@ -7,8 +7,9 @@
 	
 	<div data-role="header">
 		<a href='#' class='ui-btn-left' data-icon='arrow-l' onclick="history.back(); return false">Volver</a>
+        <a href='statement.html' class='ui-btn-right' data-transition="slideup" return false"><img src="../img/cog.png" /></a>
 		<div align="center">
-     		<img src="../img/logoBig.png" vspace="2" height="30px"/>
+     		<img src="../img/logoBig.png" vspace="2" height="30px"/>	
 		</div>
 	</div>
 
@@ -21,27 +22,10 @@
             	<input id="txtPaymentAmount" name="txtPaymentAmount" type="tel" placeholder="BsF." value="" />
 	        </div>
 	        <div data-role="fieldcontain">
-            	<!-- Displays receipt in a Modal Screen that Pops out -->
                 <a href="#" data-role="button" data-inline="false" onclick="CreateAndSavePayment();">Pagar</a> 
        		</div>
 		</form>
 	</div>
-    <div data-role="footer">		
-		<div data-role="navbar">
-			<ul>
-            	<!-- 
-                	 Tabbed Navigation Bar for moving between the main payments interface to
-                	 the administrative and configuration interfaces.
-                     
-                     Administrative interface is currently only the last 10 transactions and
-                     the configuration interface doesn't exists yet.
-                -->
-				<li><a href="payment.html">Main</a></li>
-                <li><a href="statement.html">Administrative</a></li>
-				<li><a href="#">Configuration</a></li>
-			</ul>
-		</div><!-- /navbar -->
-	</div><!-- /footer -->
 	<script>
 		var _amount = 0;
 	    $(document).ready(function() {	    	
