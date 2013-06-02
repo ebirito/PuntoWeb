@@ -8,29 +8,26 @@
 
 	<div data-role="header">
 		<div align="center">
-     		<img src="../img/logoBig.png" vspace="2" height="30px"/>
+     		<img src="../img/Logo-pto.png" vspace="2" height="30px"/>
 		</div>
 	</div>
 
 	<div data-role="content">
-		<h2>
-        	Firmar
+		<h2 class="pageTitle">
+        	Firme con el dedo
     	</h2>
     	<form method="post" action="" class="sigPad">
-		    <ul class="sigNav">
-		      <li class="clearButton"><a href="#clear">Borrar</a></li>
-		    </ul>
-		    <div class="sig sigWrapper">
-		      <canvas class="pad" width="200px" height="65px"></canvas>
-		      <input type="hidden" name="output" class="output">
-		    </div>
-		  </form>
-          <div data-role="fieldcontain">
-                <a href="receipt.html" data-role="button" data-inline="false">Finalizar</a> 
-       		</div>
+		    <div id="sig"></div>
+		    <div id="signatureConfirmation" class="signatureConfirmation"></div>
+		    <fieldset class="ui-grid-a">
+				<div class="ui-block-a"><a href="receipt.html" data-role="button" data-theme="c">Pagar</a></div>
+				<div class="ui-block-b"><button type="button" data-theme="b" onclick="ClearSignature();">Borrar</button></div>	   
+			</fieldset>
+		</form>
 		<script>
 		    $(document).ready(function() {
-		      $('.sigPad').signaturePad({drawOnly:true});
+		      $('#sig').signature({guideline: true, guidelineOffset: 10});
+		      $('#signatureConfirmation').text(localStorage.SignatureConfirmation);
 		    });
 		</script>
 	</div>

@@ -1,5 +1,5 @@
 .pageTitle, .smallLabel{
-	color:#7EB238;
+	color:#8fbe3e;
 }
 
 .smallLabel{
@@ -25,3 +25,7 @@ label.error {
 }
 
 em { color: red; font-weight: bold; padding-right: .25em; }
+
+.kbw-signature { width: 450px; height: 100px; }
+
+.signatureConfirmation { font-size:x-small }

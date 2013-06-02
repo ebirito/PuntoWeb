@@ -19,5 +19,5 @@ function ChangePassword()
 
 function lnkTermsClick()
 {
-	$.mobile.changePage('pages/terms.html');
+	$.mobile.changePage('terms.html');
 }

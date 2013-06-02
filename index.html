@@ -1,106 +1,97 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<title>Punto</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<title>Punto</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Vendor scripts -->
-<script type="text/javascript" charset="utf-8" src="scripts/vendor/cordova-2.5.0.js"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script type="text/javascript">
-    // IMPORTANT: This must execute before jQueryMobile is loaded!
-    $(document).bind("mobileinit", function() {
-         // Set the default page transition effect
-		$.mobile.defaultPageTransition = "slide";
-         // Placeholder for framework settings overrides
-         // See http://jquerymobile.com/demos/1.2.0/docs/api/globalconfig.html
-    });            
-</script>
-<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
-<script src="scripts/vendor/jquery.validate.js"></script>
-<script src="scripts/vendor/jquery.signaturepad.js"></script>
-<script src="scripts/vendor/jquery.currency.js"></script>
-<script src="scripts/vendor/flashcanvas.js"></script>
-<script src="scripts/vendor/json2.min.js"></script>
-<script src="http://static.stackmob.com/js/stackmob-js-0.9.1-bundled-min.js"></script>
-<!-- Application scripts -->
-<script src="scripts/application.js"></script>
-<script src="scripts/index.js"></script>
-<script src="scripts/payment.js"></script>
-<script src="scripts/changePassword.js"></script>
-<script src="scripts/receipt.js"></script>
-<script src="scripts/statement.js"></script>
+		<!-- Vendor scripts -->
+		<script type="text/javascript" charset="utf-8" src="scripts/vendor/cordova-2.5.0.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			// IMPORTANT: This must execute before jQueryMobile is loaded!
+			$(document).bind("mobileinit", function() {
+				// Set the default page transition effect
+				$.mobile.defaultPageTransition = "slide";
+				// Placeholder for framework settings overrides
+				// See http://jquerymobile.com/demos/1.2.0/docs/api/globalconfig.html
+			});
+		</script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script src="scripts/vendor/jquery.validate.js"></script>
+		<script src="scripts/vendor/jquery.signature.js"></script>
+		<script src="scripts/vendor/jquery.currency.js"></script>
+		<script src="scripts/vendor/flashcanvas.js"></script>
+		<script src="scripts/vendor/json2.min.js"></script>
+		<script src="http://static.stackmob.com/js/stackmob-js-0.9.1-bundled-min.js"></script>
+		<!-- Application scripts -->
+		<script src="scripts/application.js"></script>
+		<script src="scripts/index.js"></script>
+		<script src="scripts/changePassword.js"></script>
+		<script src="scripts/payment.js"></script>
+		<script src="scripts/signature.js"></script>
+		<script src="scripts/receipt.js"></script>
+		<script src="scripts/statement.js"></script>
 
-<!-- stylesheets -->
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
-<link rel="stylesheet" href="css/punto.css" />
-<link rel="stylesheet" href="css/receipt.css" />
-<link rel="stylesheet" href="css/jquery.signaturepad.css">
-<link rel="stylesheet" href="css/styles.css" />
+		<!-- stylesheets -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+		<link rel="stylesheet" href="css/punto.css" />
+		<link rel="stylesheet" href="css/receipt.css" />
+		<link rel="stylesheet" href="css/jquery.signature.css">
+		<link rel="stylesheet" href="css/styles.css" />
 
-<script>
-	// Global variables
-	var _user = null;
-</script>
+		<script>
+			// Global variables
+			var _user = null;
+		</script>
 
-</head>
-<body onload="OnLoad();">
-<div data-role="page" id="pagLogin">
+	</head>
+	<body onload="OnLoad();">
+		<div data-role="page" id="pagLogin">
 
-	<div data-role="header">
-		<div align="center">
-     		<img src="img/logoBig.png" vspace="2" height="30px"/>
-		</div>
-	</div>
-
-	<div data-role="content">
-		<h2 class="pageTitle">
-        	Active su cuenta
-    	</h2>
-    	<form id="frmLogin">
-    		<div data-role="fieldcontain" >
-				<input type="email" name="txtEmail" id="txtEmail" placeholder="Email:" />
-	        </div>
-	        <div data-role="fieldcontain">
-				<input type="password" name="txtPassword" id="txtPassword" placeholder="Clave de registro:" />
-	        </div>
-	        <div data-role="fieldcontain">
-	        	<a href="#" onclick="lnkTermsClick();">Terminos y condiciones</a>
-			 	<label><input type="checkbox" id="chkTerms" name="chkTerms" />Aceptar</label>
+			<div data-role="header">
+				<div align="center">
+					<img src="img/Logo-pto.png" vspace="2" height="30px"/>
+				</div>
 			</div>
-	        <input name="btnSubmit" type="submit" value="Activar" />
-		</form>
-	</div>
-</div>
 
+			<div data-role="content">
+				<h2 class="pageTitle"> Ingreso </h2>
+				<form id="frmLogin">
+					<div data-role="fieldcontain" >
+						<input type="email" name="txtEmail" id="txtEmail" placeholder="Email:" />
+					</div>
+					<div data-role="fieldcontain">
+						<input type="password" name="txtPassword" id="txtPassword" placeholder="Clave:" />
+					</div>
+					
+					<input name="btnSubmit" type="submit" value="Ingresar" />
+				</form>
+			</div>
+		</div>
 
-<script>
-$('#pagLogin').bind('pageinit', function(event) {
-	$("#frmLogin").validate({
-		rules: {
-			txtEmail: {
-				required: true,
-			},
-			txtPassword: {
-				required: true
-			},
-			chkTerms: {
-				required: true
-			}
-		},
-		messages: {
-			txtEmail:  "Favor ingrese e-mail valido",
-			txtPassword: "Favor ingrese clave",
-			chkTerms: "Favor aceptar terminos"
-		},
-		submitHandler: function(form) {
-            		Login();
-            		return false;
-        }
-	});
-});
-</script>
+		<script>
+			$('#pagLogin').bind('pageinit', function(event) {
+				$("#frmLogin").validate({
+					rules : {
+						txtEmail : {
+							required : true,
+						},
+						txtPassword : {
+							required : true
+						}
+					},
+					messages : {
+						txtEmail : "Favor ingrese e-mail valido",
+						txtPassword : "Favor ingrese clave"
+					},
+					submitHandler : function(form) {
+						Login();
+						return false;
+					}
+				});
+			});
+		</script>
 
-</body>
+	</body>
 </html>

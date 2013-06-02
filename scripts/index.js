@@ -19,8 +19,3 @@ function Login()
 	  }
 	});
 }
-
-function lnkTermsClick()
-{
-	$.mobile.changePage('pages/terms.html');
-}
