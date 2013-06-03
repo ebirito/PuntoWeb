@@ -24,6 +24,7 @@
 		<script src="scripts/vendor/jquery.currency.js"></script>
 		<script src="scripts/vendor/flashcanvas.js"></script>
 		<script src="scripts/vendor/json2.min.js"></script>
+        <script src="scripts/vendor/accounting.min.js"></script>
 		<script src="http://static.stackmob.com/js/stackmob-js-0.9.1-bundled-min.js"></script>
 		<!-- Application scripts -->
 		<script src="scripts/application.js"></script>
@@ -72,6 +73,27 @@
 		</div>
 
 		<script>
+		/*
+			accounting.js settings. Object that controls default parameters for library methods.
+			accounting.js is being used in addition to jQuery Corrency because the latter only formats 
+			strings places inside a input field.
+		*/
+		accounting.settings = {
+			currency: {
+				symbol : "BsF.",   // default currency symbol is '$'
+				format: "%s%v", // controls output: %s = symbol, %v = value/number (can be object: see below)
+				decimal : ",",  // decimal point separator
+				thousand: ".",  // thousands separator
+				precision : 2   // decimal places
+			},
+				number: {
+					precision : 0,  // default precision on numbers is 0
+					thousand: ",",
+					decimal : "."
+			}
+		}
+		
+		
 			$('#pagLogin').bind('pageinit', function(event) {
 				$("#frmLogin").validate({
 					rules : {

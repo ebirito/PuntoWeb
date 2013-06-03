@@ -17,9 +17,9 @@
 	$('.timeStamp').append($.datepicker.formatDate('dd-mm-yy', newdate));
 	
 	<!-- Total Amount script -->
-	var tax = parseInt(localStorage.amount) * 0.14;
-	var total = tax + parseInt(localStorage.amount);
-	$('.tenderedTotal').append((total).toFixed(2));
+	var tax = parseFloat(localStorage.amount) * 0.14;
+	var total = tax + parseFloat(localStorage.amount);
+	$('.tenderedTotal').append((accounting.formatMoney(total)));
 	
 	<!-- Account (card number) script -->
 	$('.acct').append(localStorage.CardLastFourNumbers);
@@ -64,7 +64,7 @@
                   <h3>
                   <span class="tenderedTotal">
                       Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;BsF.
+                      &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
                   </span>
                   <br>
                   </h3>
