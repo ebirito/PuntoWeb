@@ -32,7 +32,8 @@ function getPayments() {
 			
 					 if (key > payments.size() - (numberOfRecords + 1)) {
 						 
-						 ps = '<li><span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">'+item.get('cardholderfirstname')+ ' ' +item.get('cardholdermiddleinitial')+ ' ' +item.get('cardholderlastname')+ ' ************' +item.get('cardlastfournumbers')+  ' ' + accounting.formatMoney(parseFloat(item.get('amount')))+ ' ' +item.get('date')+'</span></li>' + ps;
+						 var date = new Date(item.get('date'));
+						 ps = '<li><span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">'+item.get('cardholderfirstname')+ ' ' +item.get('cardholdermiddleinitial')+ ' ' +item.get('cardholderlastname')+ ' ************' +item.get('cardlastfournumbers')+  ' ' + accounting.formatMoney(parseFloat(item.get('amount')))+ ' ' +$.datepicker.formatDate('dd-mm-yy', date)+'</span></li>' + ps;
 					 }	 
 					console.debug(item.get('amount'));
                });
