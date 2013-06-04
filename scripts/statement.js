@@ -1,11 +1,11 @@
 // Statement.js
 
-// Get statement with the last X transactions from the Stackmob 'payments' schema
+// Get statement with the last X transactions from the Stackmob 'payments' schema and display in on Jquery Mobile listview
 function getPayments() {
 		
 	/*
-		number of transactions displayed in the statement, this must be eventually dinamically assigned from
-		a configuration interface
+		The number of transactions displayed in the statement (numberOfRecords) must be eventually dinamically assigned from
+		a configuration interface.
 	*/ 
 	var numberOfRecords = 10;
 			
@@ -24,11 +24,10 @@ function getPayments() {
 	 
 	payments.query(q,{
     	success: function(model) {
-			//On success generates a <p> for each register
-			
+
 			var ps = "";
 			
-			
+			//On success generates a <li> for each register
 			payments.each(function(item,key){
 			
 					 if (key > payments.size() - (numberOfRecords + 1)) {
@@ -39,10 +38,7 @@ function getPayments() {
 					 }	 
 					
                });
-			   //ps = '<ul data-role="listview" data-inset="false" id="transactions">' + ps;
-			   //ps = ps + '</ul>';
-			   console.debug(ps);
-			//document.getElementById('payments').innerHTML = ps;
+
 			$("#transactionMenu").append(ps);
 			$("#transactionMenu").listview("refresh");
     	},
