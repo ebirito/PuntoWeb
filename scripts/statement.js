@@ -28,17 +28,23 @@ function getPayments() {
 			
 			var ps = "";
 			
+			
 			payments.each(function(item,key){
 			
 					 if (key > payments.size() - (numberOfRecords + 1)) {
 						 
 						 var date = new Date(item.get('date'));
-						 ps = '<li><span style="font-size: xx-small;" data-mce-style="font-size: xx-small;">'+item.get('cardholderfirstname')+ ' ' +item.get('cardholdermiddleinitial')+ ' ' +item.get('cardholderlastname')+ ' ************' +item.get('cardlastfournumbers')+  ' ' + accounting.formatMoney(parseFloat(item.get('amount')))+ ' ' +$.datepicker.formatDate('dd-mm-yy', date)+'</span></li>' + ps;
+						 
+						 ps = '<li>'+item.get('cardholderfirstname')+ ' ' +item.get('cardholdermiddleinitial')+ ' ' +item.get('cardholderlastname')+ ' ************' +item.get('cardlastfournumbers')+  ' ' + accounting.formatMoney(parseFloat(item.get('amount')))+ ' ' +$.datepicker.formatDate('dd-mm-yy', date)+'</li>' + ps;
 					 }	 
-					console.debug(item.get('amount'));
+					
                });
-			document.getElementById('payments').innerHTML = ps;
-			
+			   //ps = '<ul data-role="listview" data-inset="false" id="transactions">' + ps;
+			   //ps = ps + '</ul>';
+			   console.debug(ps);
+			//document.getElementById('payments').innerHTML = ps;
+			$("#transactionMenu").append(ps);
+			$("#transactionMenu").listview("refresh");
     	},
     	error: function(model, response) {
         	console.debug(response);
