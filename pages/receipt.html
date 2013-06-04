@@ -10,6 +10,7 @@
 <body>
 <div data-role="page" id="pagReceipt">  
 <script>
+	
 	loadReceipt();
 	
 	<!-- timeStamp script -->
@@ -24,11 +25,12 @@
 	<!-- Account (card number) script -->
 	$('.acct').append(localStorage.CardLastFourNumbers);
 	
+
 </script>
   
     <div>
 		<div align="center">
-     		<img src="../img/Logo-pto.png" vspace="2" height="100px"/>
+     		<img src="../img/Logo-pto.png" vspace="2" height="75px"/>
 		</div>
 	</div>
     
@@ -87,8 +89,8 @@
           <!-- Email Text Field and Send/Cancel Buttons -->
           <div id="receipt-content-divs" data-role="content">
     	  <input type="text" name="name" id="name" value=""  placeholder="Escriba su email si desea recibo"/>
-          <a href="payment.html" data-role="button" data-inline="true";">Enviar</a>
-          <a href="payment.html" data-role="button" data-inline="true";">Finalizar</a>
+          <a href="payment.html" data-role="button" data-inline="true" onClick="sendMail();">Enviar</a>
+          <a href="payment.html" data-role="button" data-inline="true">Finalizar</a>
           </div>
 </div>
 </body>
