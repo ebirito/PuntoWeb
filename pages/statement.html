@@ -10,15 +10,34 @@
 		<div align="center">	
      		<img src="../img/Logo-pto.png" vspace="2" height="30px"/>
 		</div>
-        <div align="center">
-     		ESTADO DE CUENTA
-            ULTIMAS 10 TRANSACCIONES
-		</div>
+	</div>
+    
+    <div data-role="content">
+		<h2 class="pageTitle">
+        	Ùltimas 10 Transacciones
+    	</h2>
 	</div>
 	
     <!-- Transactions List -->
-	<ul id="transactionMenu" data-role="listview" data-inset="true" >
-	</ul>    
+	<!--
+    <ul id="transactionMenu" data-role="listview" data-inset="true" >
+	</ul>
+    -->    
+    
+    <table id="payments-table" data-role="table" data-mode="Reflow" class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-popup-theme="a">
+                <thead>
+                    <tr>          				
+          				<th data-priority="persist">Nombre</th>
+          				<th data-priority="1">Cuenta</th>
+          				<th data-priority="2"><abbr title="Rotten Tomato Rating">Monto</abbr></th>
+          				<th data-priority="3">Fecha</th>
+        			</tr>
+                </thead>
+                <tbody id="table-body">
+
+
+                </tbody>
+            </table>
     
 	<script>
 		getPayments();
