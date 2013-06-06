@@ -64,9 +64,11 @@ function createReceipt()
 	localStorage.CardHolderMiddleInitial=cardInfo.CardHolderMiddleInitial;
 	localStorage.CardHolderLastName=cardInfo.CardHolderLastName;
 	localStorage.CardLastFourNumbers=cardInfo.CardLastFourNumbers;
+	localStorage.SignatureConfirmation = "Yo, el propietario de la tarjeta, me comprometo a pagar el monto de la transaccion, " +
+		"acorde al acuerdo con el emisor de mi tarjeta";
 	// Wording for underneath the signature
-	localStorage.SignatureConfirmation = "Yo, " + cardInfo.CardHolderFirstName + " " + cardInfo.CardHolderLastName + 
+	/*localStorage.SignatureConfirmation = "Yo, " + cardInfo.CardHolderFirstName + " " + cardInfo.CardHolderLastName + 
 		", me comprometo a pagar el total, acorde al acuerdo con el emisor de  mi tarjeta que finaliza en " + 
-		cardInfo.CardLastFourNumbers;
+		cardInfo.CardLastFourNumbers;*/
 }
 
