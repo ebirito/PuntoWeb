@@ -38,12 +38,12 @@
  
         	var emailaddressVal = $("#UserEmail").val();
         	if(emailaddressVal == '') {
-            	$("#UserEmail").after('<span class="error">Please enter your email address.</span>');
+            	$("#UserEmail").after('<span style="color: #f00;" class="error">Please enter your email address.</span>');
             	hasError = true;
-        	}	
+        	}	 
  
         	else if(!emailReg.test(emailaddressVal)) {
-            	$("#UserEmail").after('<span class="error">Enter a valid email address.</span>');
+            	$("#UserEmail").after('<span style="color: #f00;" class="error">Enter a valid email address.</span>');
             	hasError = true;
         }
  
