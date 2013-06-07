@@ -1,13 +1,32 @@
 @charset "utf-8";
 #receipt-content-divs {
- position:relative;
- left:15%;
+	
+ 	width: 80%;
 }
 
 #receipt-content-divs .ui-btn { 
- width: 35%;
+ 	width: 35%;
 }
 
 #receipt-content-divs .ui-input-text {
- width: 75%;
+ 	width: 80%;
 }
+
+.timeStamp {
+	float: right;	
+}
+
+.tenderedTotal {
+	float: right;	
+}
+
+.email {
+	position:relative;
+	left:10%;
+}
+
+.total {
+	position:relative;
+	left:0%;
+}
+

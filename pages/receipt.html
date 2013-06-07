@@ -57,72 +57,66 @@
 	
 </script>
   
-    <div>
+    <div data-role="content" align="center">
 		<div align="center">
      		<img src="../img/logoBig.png" vspace="2" height="75px"/>
 		</div>
 	</div>
     
-    <div>
     	<!-- Name and address receipt header -->
    		<!-- Name and address are harcoded but it must be set from a value coming from a local configuration file -->
    
    		<div data-role="content" align="center">
               <p>
-                  <h2 >EL MORRISON</h2>
+                  <h2 >MOE'S</h2>
                   <span style="font-size: xx-small;color:#908d90;";>
                       1ra Trv Los Palos Grandes, Torre Punto, Caracas, Venezuela<br> (800) 123-4568
                   </span>
               </p>
   		</div>
 
-  		<div id="receipt-content-divs" data-role="content">
+  		<div id="receipt-content-divs" data-role="content" align="center">
                   <!-- Transaction Number Time Stamp Span -->
   				  <!-- This is the Time Stamp, indicating the moment when the transaction was processed.
   	   		 		   Transaction number is harcoded but it must be set from a value coming from the backend 
   				  -->
-                  <span class="timeStamp" style="font-size: small;color:#b4b4b8;" data-mce-style="font-size: small;">
-                      Recibo:00000 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
-                  </span>
+                  <span>Recibo:00000</span>
+                  <span class="timeStamp" style="font-size: small;color:#b4b4b8;" data-mce-style="font-size: small;"></span>
   		</div>
   		<!-- Main Success Receipt Body Div -->
-  		<div class="success" id="receipt-content-divs" data-role="content">
-                  <div>
-     					<img src="../img/grey_horizontal_line.png" vspace="2" height="2px" width="320"/>
-				  </div>
+  		<div class="success" id="receipt-content-divs" data-role="content" align="center">
+     			  <span class="line"></span>
                   <!-- Tendered Total Span -->
                   <!-- This is the amount that is being charged to the client -->
                   <h3>
-                  <span class="tenderedTotal">
-                      Total: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                      &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                  </span>
+                  <span class="total">Total:</span>
+                  <span class="tenderedTotal"></span>
                   <br>
                   </h3>
           </div>
           <!-- Main Failed Receipt Body Div -->
-          <div class="failed" id="receipt-content-divs" data-role="content">
+          <div class="failed" id="receipt-content-divs" data-role="content" align="center">
               	***** TRANSACCIÓN FALLIDA *****
           </div>
           <!-- Main Receipt Footer Div -->
-          <div data-role="content" id="receipt-content-divs">
+          <div data-role="content" id="receipt-content-divs" align="center">
                   <!-- Account Span -->
                   <!-- These are the last four digits of the Credit Card -->
-                  <span class="acct" style="font-size: small;color:#b4b4b8;" data-mce-style="font-size: small;">
-                      VISA ************
+                  <span class="acct" style="font-size: small;color:#b4b4b8;" data-mce-style="font-size: small;">VISA ************
                   </span>
           </div>
-    </div>
 	
    
           <!-- Email Text Field and Send/Cancel Buttons -->
+          <div id="receipt-content-divs" data-role="content" align="center">
+          <span class="email">
           <form id="formSendReceipt">
-          <div id="receipt-content-divs" data-role="content">
     	  	<input type="text" name="UserEmail" id="UserEmail" value="" placeholder="Entre su email si desea recibo"/>
           	<input id="btn-submit" type="button" value="Enviar" data-inline="true"/>
           	<input type="button" value="Finalizar" onClick="cancel();" data-inline="true"/>
-          </div>
           </form>
+          </span>
+          </div>
 </div>
 
 
