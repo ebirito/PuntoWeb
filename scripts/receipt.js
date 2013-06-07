@@ -12,5 +12,9 @@ function loadReceipt(){
 	}
 		
 }
-	
+
+//Cancel the receipt without sending a copy to the costumer email
+function cancel() {
+	$.mobile.changePage('payment.html');
+}
 	

@@ -30,9 +30,13 @@ em { color: red; font-weight: bold; padding-right: .25em; }
 
 .signatureConfirmation { font-size:x-small }
 
-.ui-input-text,    
-.ui-select
+#default-content-divs .ui-input-text
 {
-    width: 100% !important;
-    padding: 0.4em 0!important; 
+    width: 96%;
+    padding: 0.4em;  
+}
+
+#default-content-divs .ui-btn
+{
+    width: 100%;
 }

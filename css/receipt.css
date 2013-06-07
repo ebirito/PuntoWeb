@@ -1,13 +1,13 @@
 @charset "utf-8";
 #receipt-content-divs {
  position:relative;
- left:70px;
+ left:15%;
 }
 
 #receipt-content-divs .ui-btn { 
- width: 150px;
+ width: 35%;
 }
 
 #receipt-content-divs .ui-input-text {
- width: 310px;	
+ width: 75%;
 }

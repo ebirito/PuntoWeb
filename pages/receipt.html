@@ -11,21 +11,50 @@
 <div data-role="page" id="pagReceipt">  
 <script>
 	
-	loadReceipt();
+	$(document).ready(function() {
+		
+		loadReceipt();
 	
-	<!-- timeStamp script -->
-	var newdate = new Date();
-	$('.timeStamp').append($.datepicker.formatDate('dd-mm-yy', newdate));
+		<!-- timeStamp script -->
+		var newdate = new Date();
+		$('.timeStamp').append($.datepicker.formatDate('dd-mm-yy', newdate));
 	
-	<!-- Total Amount script -->
-	var tax = parseFloat(localStorage.amount) * 0.14;
-	var total = tax + parseFloat(localStorage.amount);
-	$('.tenderedTotal').append((accounting.formatMoney(total)));
+		<!-- Total Amount script -->
+		<!-- Tax Set to 0 -->
+		var tax = parseFloat(localStorage.amount) * 0;
+		var total = tax + parseFloat(localStorage.amount);
+		$('.tenderedTotal').append((accounting.formatMoney(total)));
 	
-	<!-- Account (card number) script -->
-	$('.acct').append(localStorage.CardLastFourNumbers);
+		<!-- Account (card number) script -->
+		$('.acct').append(localStorage.CardLastFourNumbers); 
+ 
+    
+		<!-- Email Submit Button -->
+		$('#btn-submit').click(function() {  
+ 
+        	$(".error").hide();
+        	var hasError = false;
+        	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+ 
+        	var emailaddressVal = $("#UserEmail").val();
+        	if(emailaddressVal == '') {
+            	$("#UserEmail").after('<span class="error">Please enter your email address.</span>');
+            	hasError = true;
+        	}	
+ 
+        	else if(!emailReg.test(emailaddressVal)) {
+            	$("#UserEmail").after('<span class="error">Enter a valid email address.</span>');
+            	hasError = true;
+        }
+ 
+        	if(hasError == true) { 
+				return false; 
+			} else {
+				$.mobile.changePage('payment.html');
+			}
+    	});
+	});
 	
-
 </script>
   
     <div>
@@ -87,11 +116,15 @@
 	
    
           <!-- Email Text Field and Send/Cancel Buttons -->
+          <form id="formSendReceipt">
           <div id="receipt-content-divs" data-role="content">
-    	  <input type="text" name="name" id="name" value=""  placeholder="Escriba su email si desea recibo"/>
-          <a href="payment.html" data-role="button" data-inline="true" onClick="sendMail();">Enviar</a>
-          <a href="payment.html" data-role="button" data-inline="true">Finalizar</a>
+    	  	<input type="text" name="UserEmail" id="UserEmail" value="" placeholder="Entre su email si desea recibo"/>
+          	<input id="btn-submit" type="button" value="Enviar" data-inline="true"/>
+          	<input type="button" value="Finalizar" onClick="cancel();" data-inline="true"/>
           </div>
+          </form>
 </div>
+
+
 </body>
 </html>

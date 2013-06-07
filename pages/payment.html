@@ -13,16 +13,14 @@
 	</div>
 
 	<div data-role="content">
-		<h2 class="pageTitle">
-        	Ingresar monto
-    	</h2>
+		
     	<form id="frmPayment">
-	        <div data-role="fieldcontain">
+	        <div id="default-content-divs" data-role="content">
+            <h2 class="pageTitle">Ingresar monto</h2>
             	<input id="txtPaymentAmount" name="txtPaymentAmount" type="tel" placeholder="BsF." value=""/>
-	        </div>
-	        <div data-role="fieldcontain">
-                <button type="button" data-inline="false" onclick="CreateAndSavePayment();">Pagar</a> 
-       		</div>
+	        	<button type="button" data-inline="false" onclick="CreateAndSavePayment();">Pagar</a> 
+            </div>
+
 		</form>
 	</div>
 	<script>
