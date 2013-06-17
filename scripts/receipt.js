@@ -62,7 +62,7 @@ function formatCurrentTime() {
 	
 	if (newdate.getMinutes() < 10) {
 
-		m = "0" + newdate.getHours();
+		m = "0" + newdate.getMinutes();
 		
 	} else {
 	
