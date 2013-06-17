@@ -17,7 +17,7 @@
 	
 		<!-- timeStamp script -->
 		var newdate = new Date();
-		$('.timeStamp').append($.datepicker.formatDate('dd-mm-yy', newdate));
+		$('.timeStamp').append($.datepicker.formatDate('dd-mm-yy', newdate) + ' ' + formatCurrentTime());
 	
 		<!-- Total Amount script -->
 		<!-- Tax Set to 0 -->

@@ -28,7 +28,7 @@ function send() {
 	StackMob.customcode('sendgrid/email', { 
     subject: 'Recibo #0000', 
     from: 'non-respond@puntolatam.com', 
-    html: '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Untitled Document</title></head><body><p>	<h2 >MOE\'S</h2>	<span style="font-size: xx-small;color:#908d90;";>		1ra Trv Los Palos Grandes, Torre Punto, Caracas, Venezuela<br> (800) 123-4568	</span></p><span>Recibo:00000</span><span class="timeStamp" style="font-size: small;color:#b4b4b8;" data-mce-style="font-size: small;">' + $.datepicker.formatDate('dd-mm-yy', newdate) + '</span><h3>	<span class="total">' + (accounting.formatMoney(total)) + '</span>	<span class="tenderedTotal"></span>	<br></h3><span class="acct" style="font-size: small;color:#b4b4b8;" data-mce-style="font-size: small;">VISA ************</span></body></html>', 
+    html: '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Recibo Compra PoS</title></head><body><div align="center"><p><h2 style="font-family:Arial, Helvetica, sans-serif;">MI NEGOCIO C.A.</h2><span style="font-size:x-small;color:#999;font-family:Arial, Helvetica, sans-serif;">1ra Trv Los Palos Grandes, Torre Punto. Caracas, Venezuela<br style="text-align:center"> (800) 123-4568</br></span></p><span style="font-family:Arial, Helvetica, sans-serif;font-size:small;color:#333">Recibo: 00000</span><br/><span class="timeStamp" style="font-size: small;color:#333;font-family:Arial, Helvetica, sans-serif;" data-mce-style="font-size: small;">' + $.datepicker.formatDate('dd-mm-yy', newdate) + ' ' + formatCurrentTime() + '</span><h3><span style="font-family:Arial, Helvetica, sans-serif;font-size:large;" class="total">' + (accounting.formatMoney(total))+ '</span><span class="tenderedTotal"></span><br></h3><span class="acct" style="font-size: small;color:#333;font-family:Arial, Helvetica, sans-serif;" data-mce-style="font-size: small;">VISA ************</span></div></body></html>', 
     usernames: ['Usuario Punto'], 
     emails: [$('#UserEmail').val()] 
     }, 
@@ -41,5 +41,44 @@ function send() {
         console.log(error); 
     }
 });
+	
+}
+
+function formatCurrentTime() {
+	
+	var newdate = new Date();
+	var h = "";
+	var m = "";
+	var s = "";
+	
+	if (newdate.getHours() < 10) {
+
+		h = "0" + newdate.getHours();
+		
+	} else {
+	
+		h = newdate.getHours();	
+	}
+	
+	if (newdate.getMinutes() < 10) {
+
+		m = "0" + newdate.getHours();
+		
+	} else {
+	
+		m = newdate.getMinutes();	
+		
+	}
+	
+	if (newdate.getSeconds() < 10) {
+
+		s = "0" + newdate.getSeconds();
+		
+	} else {
+	
+		s = newdate.getSeconds();	
+	}
+	
+	return h + ':' + m + ':' + s;
 	
 }
